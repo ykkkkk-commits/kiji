@@ -44,7 +44,7 @@ em {
    Layout
    =========================================== */
 .container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   background: #ffffff;
   min-height: 100vh;
@@ -208,7 +208,7 @@ em {
    Article Body
    =========================================== */
 .article-body {
-  padding: 36px 24px 0;
+  padding: 36px 6px 0;
 }
 
 .lead {
