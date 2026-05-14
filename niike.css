@@ -548,6 +548,30 @@ p {
 
 .testimonial__image {
   width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+  background: #f0e8d4;
+  display: block; /* 重要：inline要素扱いを防ぐ */
+}
+
+.testimonial__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; /* img下の余白を消す */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* プレースホルダー（差し替え前）用は維持 */
+.testimonial__image .img-placeholder {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .testimonial__body {
