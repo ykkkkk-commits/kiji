@@ -729,27 +729,44 @@ p {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 12px 0;
+  padding: 14px 0;
   border-bottom: 1px dashed rgba(184, 156, 124, 0.4);
-  font-size: 14px;
-  line-height: 1.7;
-  color: #2a2520;
 }
 
 .achievement__list li:last-child {
   border-bottom: none;
 }
 
-.achievement__list li strong {
+/* テキスト部分のラッパー：これが重要 */
+.achievement__text {
+  flex: 1;
+  min-width: 0; /* flex子要素の縮小を許可 */
+  font-size: 14px;
+  line-height: 1.85;
+  color: #2a2520;
+  word-break: keep-all; /* 日本語の意図しない箇所での改行を防ぐ */
+  overflow-wrap: anywhere;
+}
+
+.achievement__text strong {
   color: #b85c44;
   font-weight: 700;
+  display: inline; /* インライン要素として確実に表示 */
+  white-space: nowrap; /* strong内で改行させない */
+}
+
+.achievement__text sup {
+  font-size: 10px;
+  color: #8a7f72;
+  margin-left: 2px;
+  vertical-align: super;
 }
 
 .achievement__icon {
   flex-shrink: 0;
   width: 22px;
   height: 22px;
-  margin-top: 2px;
+  margin-top: 3px;
   border-radius: 50%;
   background: linear-gradient(135deg, #d4b88a 0%, #c9a674 100%);
   color: #fff;
@@ -767,8 +784,30 @@ p {
   border-top: 1px dashed #d4ccc1;
   font-size: 11px;
   color: #8a7f72;
-  line-height: 1.75;
+  line-height: 1.85;
   font-style: italic;
+}
+
+/* スマホ幅での微調整 */
+@media (max-width: 480px) {
+  .achievement {
+    padding: 24px 18px 22px;
+  }
+  
+  .achievement__list li {
+    gap: 10px;
+  }
+  
+  .achievement__text {
+    font-size: 13.5px;
+    line-height: 1.8;
+  }
+  
+  .achievement__icon {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
 }
 
 /* ===========================================
