@@ -449,11 +449,26 @@ p {
 
 .checklist__check {
   flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  border: 1.5px solid #8a7f72;
-  margin-top: 4px;
-  background: #fff;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4b88a 0%, #c9a674 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(201, 166, 116, 0.3);
+  position: relative;
+}
+
+.checklist__check::before {
+  content: '';
+  width: 10px;
+  height: 5px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+  margin-top: -2px;
 }
 
 .checklist__caption {
@@ -533,7 +548,6 @@ p {
 
 .testimonial__image {
   width: 100%;
-  aspect-ratio: 16 / 10;
 }
 
 .testimonial__body {
