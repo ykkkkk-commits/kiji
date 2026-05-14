@@ -1,0 +1,1392 @@
+/* ===========================================
+   Reset & Base
+   =========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  color: #2a2520;
+  background: #faf8f5;
+  font-feature-settings: "palt";
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+em {
+  font-style: normal;
+  font-weight: 600;
+  color: #b85c44;
+  background: linear-gradient(transparent 60%, rgba(232, 150, 122, 0.25) 60%);
+}
+
+/* ===========================================
+   Layout
+   =========================================== */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  min-height: 100vh;
+  box-shadow: 0 0 40px rgba(0,0,0,0.04);
+}
+
+/* ===========================================
+   Image Placeholder (汎用)
+   =========================================== */
+.img-placeholder {
+  width: 100%;
+  background: #e5e0d8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a89a82;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  position: relative;
+}
+
+.img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, transparent 48%, rgba(168, 154, 130, 0.15) 49%, rgba(168, 154, 130, 0.15) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(168, 154, 130, 0.15) 49%, rgba(168, 154, 130, 0.15) 51%, transparent 52%);
+  background-size: 28px 28px;
+}
+
+.img-placeholder__label {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 6px 16px;
+  border-radius: 2px;
+}
+
+/* ===========================================
+   Header (既存維持)
+   =========================================== */
+.site-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid #e8e3dc;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #2a2520;
+}
+
+.site-logo__tag {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 10px;
+  font-weight: 400;
+  color: #8a7f72;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.site-category {
+  font-size: 11px;
+  color: #8a7f72;
+  letter-spacing: 0.1em;
+}
+
+/* ===========================================
+   Article Header (既存維持)
+   =========================================== */
+.article-header {
+  padding: 32px 24px 24px;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-size: 12px;
+  color: #8a7f72;
+  letter-spacing: 0.05em;
+}
+
+.article-meta__tag {
+  background: #2a2520;
+  color: #fff;
+  padding: 3px 10px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+.article-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #1a1612;
+  margin-bottom: 18px;
+}
+
+.article-title__accent {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  color: #8a7f72;
+  margin-bottom: 8px;
+}
+
+.article-subtitle {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #5a5048;
+  margin-bottom: 24px;
+}
+
+.article-writer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #8a7f72;
+  padding-top: 18px;
+  border-top: 1px solid #e8e3dc;
+}
+
+.article-writer__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c9b9a4, #8a7f72);
+}
+
+/* ===========================================
+   Hero Image Placeholder (FV直下)
+   =========================================== */
+.hero-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+/* ===========================================
+   Article Body
+   =========================================== */
+.article-body {
+  padding: 36px 24px 0;
+}
+
+.lead {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  line-height: 2.0;
+  color: #2a2520;
+  margin-bottom: 36px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.lead__opener {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #b85c44;
+  letter-spacing: 0.03em;
+}
+
+p {
+  margin-bottom: 1.5em;
+  font-size: 15px;
+  line-height: 1.95;
+  color: #2a2520;
+}
+
+/* ===========================================
+   章番号
+   =========================================== */
+.chapter-divider {
+  text-align: center;
+  padding: 32px 0 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+.chapter-divider__line {
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+  background: #c9a674;
+  vertical-align: middle;
+  margin: 0 12px;
+}
+
+.chapter-divider__num {
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  color: #a89a7c;
+}
+
+.section-heading {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: #1a1612;
+  margin: 28px 0 28px;
+  text-align: center;
+}
+
+.section-heading__chapter {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: #c9a674;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.section-heading::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: #c9a674;
+  margin: 16px auto 0;
+}
+
+.sub-heading {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #2a2520;
+  margin: 32px 0 16px;
+}
+
+/* ===========================================
+   数字ハイライト
+   =========================================== */
+.number-highlight {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #b85c44;
+  line-height: 1;
+  vertical-align: -2px;
+  margin: 0 2px;
+}
+
+/* ===========================================
+   引用ブロック (重要な気づき)
+   =========================================== */
+.pull-quote {
+  margin: 36px 0;
+  padding: 26px 24px;
+  background: #fff;
+  border-left: 4px solid #b85c44;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  line-height: 1.95;
+  color: #1a1612;
+  font-style: italic;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(40, 30, 20, 0.06);
+}
+
+.pull-quote::before {
+  content: '"';
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  color: rgba(184, 92, 68, 0.25);
+  line-height: 1;
+}
+
+.pull-quote__attribution {
+  display: block;
+  margin-top: 12px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  color: #8a7f72;
+  letter-spacing: 0.05em;
+  text-align: right;
+}
+
+/* ===========================================
+   ダイアログ (会話の引用)
+   =========================================== */
+.dialogue {
+  margin: 22px 0 !important;
+  padding: 18px 22px;
+  background: linear-gradient(135deg, #fef7eb 0%, #fdf0db 100%);
+  border-left: 3px solid #c9a674;
+  border-radius: 0 4px 4px 0;
+  font-family: 'Shippori Mincho', serif;
+  font-style: italic;
+  color: #1a1612 !important;
+  font-size: 14.5px !important;
+  line-height: 1.85;
+  position: relative;
+}
+
+.dialogue__speaker {
+  display: block;
+  margin-top: 8px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-style: normal;
+  font-size: 11px;
+  color: #8a7f72;
+  letter-spacing: 0.05em;
+}
+
+/* ===========================================
+   スタッカート (短文連続)
+   =========================================== */
+.staccato {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #1a1612;
+  text-align: center;
+  margin: 32px 0;
+  letter-spacing: 0.03em;
+}
+
+.staccato span {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.staccato--left {
+  text-align: left;
+}
+
+/* ===========================================
+   Checklist (既存維持)
+   =========================================== */
+.checklist {
+  background: #f5f1ec;
+  padding: 28px 24px;
+  margin: 32px 0;
+  border-radius: 4px;
+}
+
+.checklist__title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1a1612;
+  text-align: center;
+}
+
+.checklist__sub {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  font-style: italic;
+  letter-spacing: 0.3em;
+  color: #c9a674;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.checklist__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #2a2520;
+}
+
+.checklist__item:last-child {
+  margin-bottom: 0;
+}
+
+.checklist__check {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #8a7f72;
+  margin-top: 4px;
+  background: #fff;
+}
+
+.checklist__caption {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px dashed #d4ccc1;
+  font-size: 13px;
+  color: #5a5048;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ===========================================
+   Callout (既存維持・補助)
+   =========================================== */
+.callout {
+  background: #fffbf3;
+  border-left: 3px solid #c9a674;
+  padding: 20px 22px;
+  margin: 28px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  color: #4a3f35;
+}
+
+.callout__title {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  color: #2a2520;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* ===========================================
+   Testimonial
+   =========================================== */
+.testimonial {
+  margin: 40px 0;
+  padding: 0;
+  background: #fafaf7;
+  border: 1px solid #ebe5dc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.testimonial__header {
+  padding: 22px 22px 18px;
+  border-bottom: 1px solid #ebe5dc;
+  background: #fff;
+}
+
+.testimonial__label {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: #c9a674;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #c9a674;
+}
+
+.testimonial__title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: #1a1612;
+  margin-bottom: 6px;
+}
+
+.testimonial__name {
+  font-size: 12px;
+  color: #8a7f72;
+}
+
+.testimonial__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.testimonial__body {
+  padding: 26px 22px;
+}
+
+.testimonial__body p {
+  font-size: 14.5px;
+  line-height: 1.95;
+}
+
+.testimonial__body p:last-child {
+  margin-bottom: 0;
+}
+
+.testimonial__note {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px dashed #e8ddc8;
+  font-size: 11px;
+  color: #8a7f72;
+  line-height: 1.75;
+  font-style: italic;
+}
+
+/* ===========================================
+   Notice (お知らせ・限定性)
+   =========================================== */
+.notice {
+  margin: 36px 0;
+  padding: 24px 24px 20px;
+  background: #fdfaf3;
+  border-left: 3px solid #c9a674;
+  border-radius: 0 4px 4px 0;
+}
+
+.notice__label {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c9a674;
+  margin-bottom: 14px;
+  letter-spacing: 0.1em;
+}
+
+.notice p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: #2a2520;
+  margin-bottom: 1em;
+}
+
+.notice p:last-child {
+  margin-bottom: 0;
+}
+
+.notice__small {
+  font-size: 12px !important;
+  color: #8a7f72 !important;
+  font-style: italic;
+  margin-top: 12px !important;
+}
+
+/* ===========================================
+   How To (鑑定の流れ)
+   =========================================== */
+.howto {
+  margin: 32px 0;
+}
+
+.howto__step {
+  display: flex;
+  gap: 18px;
+  padding: 22px 0;
+  border-bottom: 1px dashed #d4ccc1;
+  align-items: flex-start;
+}
+
+.howto__step:first-child {
+  border-top: 1px dashed #d4ccc1;
+}
+
+.howto__num {
+  flex-shrink: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #b85c44;
+  line-height: 1;
+  min-width: 44px;
+}
+
+.howto__content {
+  flex: 1;
+}
+
+.howto__title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1612;
+  margin-bottom: 8px;
+}
+
+.howto__content p {
+  font-size: 13.5px;
+  line-height: 1.85;
+  margin-bottom: 0;
+  color: #4a3f35;
+}
+
+/* ===========================================
+   First Words (最初の一言)
+   =========================================== */
+.first-words {
+  margin: 36px 0;
+  padding: 28px 26px;
+  background: linear-gradient(135deg, #fef5e3 0%, #fdf0d4 100%);
+  border-left: 4px solid #c9a674;
+  border-radius: 0 6px 6px 0;
+  text-align: center;
+}
+
+.first-words__label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: #b85c44;
+  margin-bottom: 14px;
+}
+
+.first-words__quote {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 19px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.7;
+  color: #1a1612;
+  margin-bottom: 16px;
+}
+
+.first-words p {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: #5a4838;
+  margin-bottom: 0;
+}
+
+/* ===========================================
+   Achievement (ニーケの実績)
+   =========================================== */
+.achievement {
+  margin: 40px 0;
+  padding: 30px 26px 26px;
+  background: linear-gradient(135deg, #fef5e3 0%, #fdebd0 100%);
+  border: 1px solid #e8d8c0;
+  border-radius: 6px;
+  position: relative;
+}
+
+.achievement__label {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1612;
+  text-align: center;
+  margin-bottom: 22px;
+  letter-spacing: 0.08em;
+}
+
+.achievement__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievement__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(184, 156, 124, 0.4);
+  font-size: 14px;
+  line-height: 1.7;
+  color: #2a2520;
+}
+
+.achievement__list li:last-child {
+  border-bottom: none;
+}
+
+.achievement__list li strong {
+  color: #b85c44;
+  font-weight: 700;
+}
+
+.achievement__icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4b88a 0%, #c9a674 100%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(201, 166, 116, 0.3);
+}
+
+.achievement__notes {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed #d4ccc1;
+  font-size: 11px;
+  color: #8a7f72;
+  line-height: 1.75;
+  font-style: italic;
+}
+
+/* ===========================================
+   Master Match (先生マッチング表示)
+   =========================================== */
+.master__match {
+  display: inline-block;
+  background: linear-gradient(135deg, #e8967a 0%, #b85c44 100%);
+  color: #fff;
+  padding: 6px 16px;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgba(184, 92, 68, 0.2);
+}
+
+/* ===========================================
+   Mystery (3つの謎)
+   =========================================== */
+.mystery {
+  margin: 36px 0;
+  padding: 26px 24px 28px;
+  background: linear-gradient(135deg, #fdf9f0 0%, #fef5e3 100%);
+  border: 1px solid #e8d8c0;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(40, 30, 20, 0.05);
+}
+
+.mystery__label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #c9a674;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.mystery__num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #b85c44;
+  vertical-align: -3px;
+  margin-left: 4px;
+}
+
+.mystery__title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #1a1612;
+  text-align: center;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed #d4ccc1;
+}
+
+.mystery__body p {
+  font-size: 14.5px;
+  line-height: 2.0;
+  margin-bottom: 1.2em;
+  color: #2a2520;
+}
+
+.mystery__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===========================================
+   Review (口コミ・短い声)
+   =========================================== */
+.reviews {
+  margin: 40px 0;
+}
+
+.reviews__title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1612;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.reviews__title__sub {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  font-style: italic;
+  letter-spacing: 0.3em;
+  color: #c9a674;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.reviews__desc {
+  font-size: 13px;
+  color: #5a4838;
+  text-align: center;
+  margin-bottom: 26px;
+  line-height: 1.85;
+}
+
+.review {
+  background: #fff;
+  border: 1px solid #ebe5dc;
+  border-radius: 6px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.review__stars {
+  color: #e8b870;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.review__title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1a1612;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.review__body {
+  font-size: 13px;
+  line-height: 1.85;
+  color: #3a322a;
+  margin-bottom: 10px;
+}
+
+.review__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #8a7f72;
+  padding-top: 10px;
+  border-top: 1px dashed #ebe5dc;
+}
+
+.review__name {
+  letter-spacing: 0.03em;
+}
+
+.review__age {
+  color: #a89a82;
+}
+
+/* ===========================================
+   Writer Note (ライターの語り)
+   =========================================== */
+.writer-note {
+  margin: 36px 0;
+  padding: 28px 24px;
+  background: #fdfaf3;
+  border: 1px solid #ebe0c8;
+  border-radius: 6px;
+  position: relative;
+}
+
+.writer-note::before {
+  content: '✦';
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  font-size: 16px;
+  color: #c9a674;
+  background: #faf8f5;
+  padding: 0 8px;
+}
+
+.writer-note p {
+  font-size: 14.5px;
+  line-height: 2.0;
+  color: #2a2520;
+  margin-bottom: 1.2em;
+}
+
+.writer-note p:last-child {
+  margin-bottom: 0;
+}
+
+.writer-note__sign {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  text-align: right;
+  font-size: 12px;
+  color: #8a7f72;
+  margin-top: 14px !important;
+  letter-spacing: 0.05em;
+}
+.service-box {
+  margin: 36px 0;
+  padding: 28px 24px;
+  background: #fff;
+  border: 2px solid #2a2520;
+  position: relative;
+}
+
+.service-box__label {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: #c9a674;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #c9a674;
+}
+
+.service-box__name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1612;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #ebe5dc;
+}
+
+.service-box__features {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.service-box__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.service-box__features li:last-child {
+  margin-bottom: 0;
+}
+
+.service-box__num {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, #e8967a 0%, #b85c44 100%);
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(184, 92, 68, 0.25);
+}
+
+/* ===========================================
+   CTA Block (温かみのある相談誘導トーン)
+   =========================================== */
+.cta-block {
+  margin: 48px 0;
+  padding: 44px 24px 36px;
+  background:
+    radial-gradient(ellipse at top, #fef5e3 0%, #fdebd0 60%, #f5dcb4 100%);
+  text-align: center;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(184, 92, 68, 0.08);
+}
+
+/* 上下に装飾的セパレーター */
+.cta-block::before,
+.cta-block::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 92, 68, 0.4), transparent);
+}
+
+.cta-block::before { top: 16px; }
+.cta-block::after { bottom: 16px; }
+
+/* CTA手前のリード文（温かい誘い） */
+.cta-block__intro {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14.5px;
+  line-height: 1.95;
+  color: #5a4838;
+  margin-bottom: 22px;
+  font-style: normal;
+}
+
+.cta-block__intro strong {
+  display: block;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1612;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+/* メインのリード（CTA直上） */
+.cta-block__lead {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1612;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+
+.cta-block__sub {
+  font-size: 13px;
+  color: #5a4838;
+  margin-bottom: 26px;
+  line-height: 1.85;
+}
+
+/* ボーナスバッジ（控えめに） */
+.cta-block__bonus {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  color: #b85c44;
+  padding: 8px 18px;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-bottom: 18px;
+  border: 1px solid #d4a890;
+  border-radius: 40px;
+  box-shadow: 0 3px 10px rgba(184, 92, 68, 0.1);
+}
+
+.cta-block__bonus::before {
+  content: '✦';
+  color: #c9a674;
+  font-size: 13px;
+}
+
+/* メインCTAボタン */
+.cta-button {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 24px 24px;
+  background: linear-gradient(180deg, #c47a5c 0%, #a85a40 100%);
+  color: #fff !important;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  text-decoration: none !important;
+  position: relative;
+  box-shadow:
+    0 4px 0 #7a3e28,
+    0 8px 24px rgba(168, 90, 64, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  animation: cta-glow 4s ease-in-out infinite;
+}
+
+@keyframes cta-glow {
+  0%, 100% {
+    box-shadow:
+      0 4px 0 #7a3e28,
+      0 8px 24px rgba(168, 90, 64, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 4px 0 #7a3e28,
+      0 10px 36px rgba(232, 150, 122, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+.cta-button:hover {
+  transform: translateY(2px);
+  background: linear-gradient(180deg, #d08a6c 0%, #b86a50 100%);
+  box-shadow:
+    0 2px 0 #7a3e28,
+    0 4px 12px rgba(168, 90, 64, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.cta-button__main {
+  display: block;
+}
+
+.cta-button__icon {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 16px;
+  vertical-align: -1px;
+  opacity: 0.95;
+}
+
+.cta-button__arrow {
+  display: inline-block;
+  margin-left: 10px;
+  transition: transform 0.2s;
+}
+
+.cta-button:hover .cta-button__arrow {
+  transform: translateX(4px);
+}
+
+.cta-button__sub {
+  display: block;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 11.5px;
+  font-weight: 400;
+  margin-top: 8px;
+  opacity: 0.95;
+  letter-spacing: 0.08em;
+}
+
+/* CTA下の補足説明（ハードルの低さを伝える） */
+.cta-block__notes {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 11.5px;
+  color: #6a5848;
+}
+
+.cta-block__notes span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cta-block__notes span::before {
+  content: '✓';
+  color: #8a9a6a;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.cta-disclaimer {
+  margin-top: 20px;
+  font-size: 11px;
+  line-height: 1.75;
+  color: #8a7f72;
+  text-align: left;
+  padding: 0 8px;
+}
+
+/* ===========================================
+   FAQ
+   =========================================== */
+.faq {
+  margin: 36px 0;
+}
+
+.faq__item {
+  border-bottom: 1px solid #ebe5dc;
+  padding: 18px 0;
+}
+
+.faq__item:first-child {
+  border-top: 1px solid #ebe5dc;
+}
+
+.faq__q {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #1a1612;
+  margin-bottom: 10px;
+}
+
+.faq__q::before {
+  content: 'Q.';
+  flex-shrink: 0;
+  color: #c9302c;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.faq__a {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: #4a3f35;
+}
+
+.faq__a::before {
+  content: 'A.';
+  flex-shrink: 0;
+  color: #c9a674;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* ===========================================
+   Closing
+   =========================================== */
+.closing {
+  margin: 44px 0 32px;
+  padding: 36px 24px;
+  background: linear-gradient(180deg, #fdf0d4 0%, #f5e5c4 100%);
+  text-align: center;
+  border-radius: 4px;
+}
+
+.closing__symbol {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #b85c44;
+  margin-bottom: 16px;
+  letter-spacing: 0.15em;
+}
+
+.closing__text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  line-height: 2.0;
+  color: #1a1612;
+  margin-bottom: 0;
+}
+
+.closing__divider {
+  display: block;
+  margin: 16px auto;
+  width: 44px;
+  height: 1px;
+  background: rgba(184, 92, 68, 0.4);
+}
+
+/* ===========================================
+   Footer
+   =========================================== */
+.site-footer {
+  padding: 32px 24px;
+  background: #2a2520;
+  color: #c9b9a4;
+  font-size: 11px;
+  line-height: 1.85;
+  text-align: center;
+}
+
+.site-footer__logo {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.site-footer__sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: #8a7f72;
+  margin-bottom: 12px;
+}
+
+.site-footer__disclosure {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 10px;
+  color: #8a7f72;
+  line-height: 1.7;
+}
+
+/* ===========================================
+   Note (打消し表示)
+   =========================================== */
+.note {
+  font-size: 11.5px;
+  color: #8a7f72;
+  line-height: 1.85;
+  margin-top: 12px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ===========================================
+   Responsive
+   =========================================== */
+@media (max-width: 480px) {
+  .article-title {
+    font-size: 22px;
+  }
+  .article-title__accent {
+    font-size: 16px;
+  }
+  .section-heading {
+    font-size: 19px;
+  }
+  .article-body {
+    padding: 28px 20px 0;
+  }
+  .article-header {
+    padding: 24px 20px 20px;
+  }
+  .staccato {
+    font-size: 17px;
+  }
+}
